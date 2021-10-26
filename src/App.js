@@ -1,48 +1,26 @@
-import React, {useState} from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import React from "react";
+import ConfigPluginModified from "./components/ConfigPluginModified";
 import DropdownSelector from "./components/DropdownSelector";
 import EditPluginList from "./components/EditPluginList";
-import ConfigPluginModified from "./components/ConfigPluginModified";
-
-
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
-  const [listPlugin, setListPlugin] = useState([]);
-  const [pluginSelect,setPlugin] = useState(0);
-
-  const filterPluggin = (e) => {
-    if(listPlugin!== null){
-      const newPluggin = listPlugin.filter((item) => item.uid === e);
-      setPlugin(newPluggin[0])
-      return <ConfigPluginModified pluginSelect={pluginSelect} setPlugin={setPlugin} />
-    }
-  };
-
   return (
-    <div className="App container-fluid">
-      <div className="row">
+    <div className="App content-fluid">
+      <div className="row-sm">
         <Header />
       </div>
-      <div className="p-2">
       <div className="row">
-        <div className="col-2 d-flex justify-content-center">
-          <DropdownSelector 
-          listPlugin={listPlugin} 
-          setListPlugin={setListPlugin} />
+        <div className="col-3">
+          <DropdownSelector />
         </div>
-        <div className="col-3 d-flex justify-content-center">
-          <EditPluginList 
-          listPlugin={listPlugin} 
-          setListPlugin={setListPlugin} 
-          filterPluggin={filterPluggin} />
+        <div className="col-3">
+          <EditPluginList />
         </div>
-        <div className="col-6 d-flex justify-content-center">
-          <ConfigPluginModified pluginSelect={pluginSelect} 
-          setPlugin={setPlugin} listPlugin={listPlugin} 
-          setListPlugin={setListPlugin} />
+        <div className="col-6">
+          <ConfigPluginModified />
         </div>
-      </div>
       </div>
       <div className="row">
         <Footer />
