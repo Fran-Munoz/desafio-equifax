@@ -101,6 +101,5 @@ adapters:
      - mapping: laborafax.calculated.outputDecision
        position: 4
      - mapping: laborafax.calculated.runDate
-       position: 5
-    
+       position: 5   
 
